@@ -23,8 +23,10 @@ public class startMenu extends Application {
 
         // Add action listener for Buy button to start the main functionality
         buyButton.setOnAction(event -> {
-            clients.Main.main(new String[]{}); // Start the main function of the system
+            clients.Main.main(new String[]{}); // start the main function
+            secondHandProducts.display(soldItems); // Display second-hand products in a new window
         });
+        
 
         // Add action listener for Sell button to start the sell workflow
         sellButton.setOnAction(event -> {
