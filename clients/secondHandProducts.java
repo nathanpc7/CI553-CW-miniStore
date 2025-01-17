@@ -21,7 +21,7 @@ public class secondHandProducts {
         } else {
             layout.getChildren().add(new Label("Second-Hand Products:"));
             for (startMenu.Product product : soldItems) {
-                layout.getChildren().add(new Label(product.toString()));
+            	 layout.getChildren().add(new Label("Product: " + product.getName() + ", Price: £" + product.getPrice()));
             }
 
             // Input field to buy a product by name
