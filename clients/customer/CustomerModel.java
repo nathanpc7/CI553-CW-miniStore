@@ -1,7 +1,8 @@
 package clients.customer;
-
+import clients.startMenu;
 import catalogue.Basket;
 import catalogue.Product;
+import clients.secondHandProducts;
 import debug.DEBUG;
 import middle.MiddleFactory;
 import middle.OrderProcessing;
@@ -75,6 +76,11 @@ public class CustomerModel extends Observable
               pr.getQuantity() );               //    quantity
           pr.setQuantity( amount );             //   Require 1
           theBasket.add( pr );                  //   Add to basket
+          
+          
+       // Add the product to the purchasedItems list
+          secondHandProducts.purchasedItems.add(new startMenu.Product(pr.getDescription(), pr.getPrice()));
+          
           thePic = theStock.getImage( pn );     //    product
         } else {                                //  F
           theAction =                           //   Inform

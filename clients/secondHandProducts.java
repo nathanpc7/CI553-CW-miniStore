@@ -6,10 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class secondHandProducts {
-
+	public static final List<startMenu.Product> purchasedItems = new ArrayList<>();
     public static void display(List<startMenu.Product> soldItems) {
         Stage stage = new Stage();
         stage.setTitle("Second-Hand Products");
@@ -39,6 +41,7 @@ public class secondHandProducts {
                     startMenu.Product product = soldItems.get(i);
                     if (product.getName().equalsIgnoreCase(enteredName)) {
                         soldItems.remove(i);
+                        purchasedItems.add(product);
                         layout.getChildren().add(new Label("Successfully bought: " + product));
                         found = true;
                         break;
@@ -52,6 +55,10 @@ public class secondHandProducts {
 
             layout.getChildren().addAll(productNameField, buyButton);
         }
+
+        Button showFinalButton = new Button("Show Purchased Items");
+        showFinalButton.setOnAction(event -> finalScreen.display(purchasedItems));
+        layout.getChildren().add(showFinalButton);
 
         Button closeButton = new Button("Close");
         closeButton.setOnAction(event -> stage.close());
