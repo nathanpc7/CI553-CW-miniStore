@@ -70,5 +70,6 @@ public class startMenu extends Application {
         public String toString() {
             return "Product: " + name + ", Price: $" + price;
         }
+        
     }
 }

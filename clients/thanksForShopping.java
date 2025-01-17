@@ -7,11 +7,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.List;
 
-public class finalScreen {
+public class thanksForShopping {
 
     public static void display(List<startMenu.Product> purchasedItems) {
         Stage stage = new Stage();
-        stage.setTitle("Thank you for shopping at Nathan's awesome store");
+        stage.setTitle("Thanks for Shopping!");
 
         VBox layout = new VBox(10);
 
