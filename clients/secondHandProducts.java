@@ -55,10 +55,10 @@ public class secondHandProducts {
 
             layout.getChildren().addAll(productNameField, buyButton);
         }
-
-        Button showFinalButton = new Button("Show Purchased Items");
-        showFinalButton.setOnAction(event -> finalScreen.display(purchasedItems));
-        layout.getChildren().add(showFinalButton);
+// have a button that the user can press to show a list of all the bought items
+        Button showThanksForShopping = new Button("Show Purchased Items");
+        showThanksForShopping.setOnAction(event -> thanksForShopping.display(purchasedItems));
+        layout.getChildren().add(showThanksForShopping);
 
         Button closeButton = new Button("Close");
         closeButton.setOnAction(event -> stage.close());

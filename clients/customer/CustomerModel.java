@@ -3,6 +3,7 @@ import clients.startMenu;
 import catalogue.Basket;
 import catalogue.Product;
 import clients.secondHandProducts;
+import clients.thanksForShopping;
 import debug.DEBUG;
 import middle.MiddleFactory;
 import middle.OrderProcessing;
@@ -79,7 +80,10 @@ public class CustomerModel extends Observable
           
           
        // Add the product to the purchasedItems list
-          secondHandProducts.purchasedItems.add(new startMenu.Product(pr.getDescription(), pr.getPrice()));
+          
+          	secondHandProducts.purchasedItems.add(new startMenu.Product(pr.getDescription(), pr.getPrice()));
+          
+          
           
           thePic = theStock.getImage( pn );     //    product
         } else {                                //  F
