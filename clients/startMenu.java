@@ -14,21 +14,21 @@ public class startMenu extends Application {
         Button buyButton = new Button("Buy");
         Button sellButton = new Button("Sell");
 
-        // Add action listener for Buy button to start the main functionality
+        // The action listener will put the main systems operation behind the buy option
         buyButton.setOnAction(event -> {
-            clients.Main.main(new String[]{}); // Start the main function of the system
+            clients.Main.main(new String[]{}); 
         });
 
-        // Add action listener for Sell button (functionality to be implemented later)
+        // Add action listener for Sell button- does nothing so far
         sellButton.setOnAction(event -> {
             System.out.println("Sell functionality coming soon!");
         });
 
-        // Layout the buttons in a VBox
-        VBox layout = new VBox(10); // 10px spacing between elements
+        // Simple box layout
+        VBox layout = new VBox(10); 
         layout.getChildren().addAll(buyButton, sellButton);
 
-        // Create the scene and set the stage
+        
         Scene scene = new Scene(layout, 300, 200);
         primaryStage.setTitle("MiniStore Start Menu");
         primaryStage.setScene(scene);
