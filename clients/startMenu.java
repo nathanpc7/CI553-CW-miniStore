@@ -1,41 +1,43 @@
-package clients;
-
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class startMenu extends Application {
+import clients.startMenu; // Ensure this is correct
 
-    @Override
-    public void start(Stage primaryStage) {
-        // Create buttons for Buy and Sell
-        Button buyButton = new Button("Buy");
-        Button sellButton = new Button("Sell");
+public class testsellClient {
+    public static void display() {
+        Stage stage = new Stage();
+        stage.setTitle("Sell Product");
 
-        // The action listener will put the main systems operation behind the buy option
-        buyButton.setOnAction(event -> {
-            clients.Main.main(new String[]{}); 
+        // Input fields for product name and price
+        Label nameLabel = new Label("Enter product name:");
+        TextField nameField = new TextField();
+
+        Label priceLabel = new Label("Enter product price:");
+        TextField priceField = new TextField();
+
+        // Next button to proceed to the ConfirmationClient
+        Button nextButton = new Button("Next");
+        nextButton.setOnAction(event -> {
+            String name = nameField.getText();
+            double price;
+            try {
+                price = Double.parseDouble(priceField.getText());
+                // Temporary action for testing
+                System.out.println("Product Name: " + name + ", Price: " + price);
+                stage.close();
+            } catch (NumberFormatException e) {
+                priceField.setText("Invalid price");
+            }
         });
 
-        // Add action listener for Sell button- does nothing so far
-        sellButton.setOnAction(event -> {
-            System.out.println("Sell functionality coming soon!");
-        });
-
-        // Simple box layout
-        VBox layout = new VBox(10); 
-        layout.getChildren().addAll(buyButton, sellButton);
-
-        
+        // Layout the components
+        VBox layout = new VBox(10, nameLabel, nameField, priceLabel, priceField, nextButton);
         Scene scene = new Scene(layout, 300, 200);
-        primaryStage.setTitle("MiniStore Start Menu");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+        stage.setScene(scene);
+        stage.show();
     }
 }
